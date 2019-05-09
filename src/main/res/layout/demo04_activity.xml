@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--3.0 使用 DrawerLayout 可以很容易就实现一个 滑动菜单-->
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/c12d4_drawer_layout4"
+    tools:context=".two.Demo04_Activity">
+
+
+    <!-- 2.0 先使用一个 FrameLayout布局将 Toolbar给括起来-->
+    <!-- 6.0 使用CoordinatorLayout替换原有的 2.0FrameLayout，因为整个活动中使用了 FloatingActionButton按
+    钮，点击该按钮后会出现一个 Snackbar可交互式提示工具，会将部分 FloatingActionButton给遮挡住，所以使
+    用 CoordinatorLayout将整个主内容给包裹起来，从而点击 FloatingActionButton按钮时出现的 Snackbar不会遮挡到该按钮-->
+    <!--<FrameLayout-->
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+      <!--7.0 使用AppBarLayout 把Toolbar给包裹，就不会出现 Toolbar被遮挡的效果-->
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- 1.0 首先给出一个 Toolbar，替换原有的ActionBar-->
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:id="@+id/c12d4_toolbar"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
+                app:layout_scrollFlags="scroll|enterAlways|snap" />
+        </android.support.design.widget.AppBarLayout>
+
+        <!-- 9.0 为了实现下拉刷新功能，这里只有RecyclerView能完成这个功能，所以用 SwipeRefreshLayout
+        将 RecyclerView给包裹住，这样 RecyclerView就变成了 SwipeRefreshLayout的子控件，而且还要将 布局行为behavior
+        移动到 SwipeRefreshLayout中，这样才能实现子控件之间的交互-->
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/c12d4_srl_refresh"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- 8.0 RecyclerView，在该控件中显示 fruit_item.xml文件内容-->
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/c12d4_recycler_view"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <!-- 6.0 FloatingActionButton 悬浮按钮-->
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/c12d4_fab"
+            android:src="@drawable/ic_done"
+            android:elevation="10dp"
+            android:layout_margin="15dp"
+            android:layout_gravity="bottom|end"/>
+    </android.support.design.widget.CoordinatorLayout>
+<!--</FrameLayout>-->
+
+
+    <!--&lt;!&ndash; 4.0 侧面菜单的测试控件&ndash;&gt;
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="我是侧面菜单，配合 DrawerLayout 滑动菜单布局 一起使用"
+        android:textSize="50dp"
+        android:background="#FFF"
+        android:layout_gravity="start"
+        />-->
+    <!-- 5.0 代替原来4.0的TextView，使用更为专业的 NavigationView来优化优美侧面菜单界面，需要两个依赖库-->
+    <android.support.design.widget.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/c12d4_nav_view"
+        android:layout_gravity="start"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header"
+        android:elevation="8dp" />
+</android.support.v4.widget.DrawerLayout>

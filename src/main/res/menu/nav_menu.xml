@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- nav_menu.xml文件 主要显示 侧面滑动菜单的 列表-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 这里使用 group组，指定组中每个菜单为 single，表示单选-->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/c12d3_menu_nav_call"
+            android:icon="@drawable/nav_call"
+            android:title="Call" />
+        <item
+            android:id="@+id/c12d3_menu_nav_friends"
+            android:icon="@drawable/nav_friends"
+            android:title="Friends"/>
+
+        <item android:id="@+id/c12d3_menu_nav_location"
+            android:icon="@drawable/nav_location"
+            android:title="Location"/>
+
+        <item
+            android:id="@+id/c12d3_menu_nav_mail"
+            android:icon="@drawable/nav_mail"
+            android:title="Mail"/>
+
+        <item
+            android:id="@+id/c12d3_menu_nav_task"
+            android:icon="@drawable/nav_task"
+            android:title="Tasks"/>
+    </group>
+</menu>

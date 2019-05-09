@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 1.0 使用 CoordinatorLayout作为最外层布局-->
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".two.Demo05_FruitActivity"
+    android:fitsSystemWindows="true">
+<!-- 2.0 在 CoordinatorLayout中嵌套 AppBarLayout-->
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/c12d5_appBar"
+        android:fitsSystemWindows="true">
+        <!-- 3.0 在 AppBarLayout中在嵌套一个 CoolspingToolbarLayout-->
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/c12d5_collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:fitsSystemWindows="true">
+<!-- 4.0 在 CollapsingToolbarLayout中定义 标题栏的具体内容-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/c12d5_fruit_image_view"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax"
+                android:fitsSystemWindows="true"/>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/c12d5_tololbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+    <!--【5.0】 水果内容的详情部分，NestedScrollView和AppBarLayout平级-->
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <!--6.0 在 NestedScrollView中嵌套一个 LinearLayout，显示LinearLayout为垂直布局-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <!-- 7.0 在 LinearLayout布局中放入一个 TextView控件来显示水果的内容详情，并将TextView放在一个卡片布局中-->
+                <!-- 8.0 CardView卡片布局，在卡片布局中嵌套 TextView-->
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="35dp"
+                    app:cardCornerRadius="4dp">
+                    <!--7.0 TextView控件-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/c12d5_fruit_content_text"
+                        android:layout_margin="10dp"/>
+                </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+    <!-- 9.0 添加一个 FloatingActionButton悬浮按钮 -->
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_comment"
+        app:layout_anchor="@id/c12d5_appBar"
+        app:layout_anchorGravity="bottom|end"/>
+
+</android.support.design.widget.CoordinatorLayout>

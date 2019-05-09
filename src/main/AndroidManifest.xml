@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.demo.chapter12">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Demo01_Toolbar控件的实现 -->
+        <activity
+            android:name=".one.Demo01_Activity"
+            android:label="Toolbar">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+
+        <!-- Demo02_  Metarial Designs 控件效果下的 DrawerLayout 滑动菜单的用法 -->
+        <activity
+            android:name=".one.Demo02_Activity"
+            android:label="Two Toolbar">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+
+        <!-- Demo03_  NavigationView, FloatingActionButton, Snackbar, CoordinatorLayout 的具体使用方式 -->
+        <activity
+            android:name=".two.Demo03_Activity"
+            android:label="three ">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name=".two.Demo04_Activity"
+            android:label="demo04">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".two.Demo05_FruitActivity"
+            android:theme="@style/FruitActivityTheme">
+        </activity>
+
+    </application>
+
+</manifest>
